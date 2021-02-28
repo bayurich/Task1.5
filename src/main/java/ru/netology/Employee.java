@@ -20,6 +20,26 @@ public class Employee {
         this.age = age;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +

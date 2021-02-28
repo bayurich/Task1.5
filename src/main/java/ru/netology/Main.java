@@ -56,7 +56,7 @@ public class Main {
         printListOfEmployee(list3);
     }
 
-    private static List<Employee> jsonToList(String json) {
+    public static List<Employee> jsonToList(String json) {
 
         List<Employee> employees = new ArrayList<>();
         try {
@@ -77,7 +77,7 @@ public class Main {
         return employees;
     }
 
-    private static String readString(String fileName) {
+    public static String readString(String fileName) {
         StringBuilder sb = new StringBuilder();
         try(FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader)){
@@ -100,7 +100,7 @@ public class Main {
         }
     }
 
-    private static List<Employee> parseXML(String fileName) {
+    public static List<Employee> parseXML(String fileName) {
 
         List<Employee> employees = new ArrayList<>();
         try {
@@ -132,7 +132,7 @@ public class Main {
         return employees;
     }
 
-    private static void writeString(String text, String fileName) {
+    public static void writeString(String text, String fileName) {
 
         try(FileWriter fileWriter = new FileWriter(fileName)){
             fileWriter.write(text);
@@ -144,7 +144,7 @@ public class Main {
         }
     }
 
-    private static String listToJson(List<Employee> list) {
+    public static String listToJson(List<Employee> list) {
 
         Type listType = new TypeToken<List<Employee>>() {}.getType();
         Gson gson = new Gson();
@@ -153,7 +153,7 @@ public class Main {
         return  jsonElement.toString();
     }
 
-    private static List<Employee> parseCSV(String[] columnMapping, String fileName) {
+    public static List<Employee> parseCSV(String[] columnMapping, String fileName) {
 
         List<Employee> employees = new ArrayList<>();
         try (CSVReader csvReader = new CSVReader(new FileReader(fileName))){
