@@ -1,8 +1,6 @@
 package ru.netology;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
+import org.hamcrest.Matchers;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +11,8 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+
+import static org.junit.Assert.*;
 
 /**
  * Unit test for simple App.
@@ -63,6 +63,7 @@ public class AppTest
 
         List<Employee> resultList = Main.jsonToList(inputString);
 
+        assertThat(resultList, Matchers.hasSize(2));
         Assertions.assertEquals(expectedList.size(), resultList.size());
         Assertions.assertTrue(isEmployeesEquals(expectedList, resultList));
     }
@@ -88,6 +89,7 @@ public class AppTest
 
         List<Employee> resultList = Main.parseCSV(columnMapping, TEST_PATH + "test.csv");
 
+        assertThat(resultList, Matchers.hasSize(2));
         Assertions.assertEquals(expectedList.size(), resultList.size());
         Assertions.assertTrue(isEmployeesEquals(expectedList, resultList));
     }
@@ -100,6 +102,7 @@ public class AppTest
 
         List<Employee> resultList = Main.parseXML(TEST_PATH + "test.xml");
 
+        assertThat(resultList, Matchers.hasSize(2));
         Assertions.assertEquals(expectedList.size(), resultList.size());
         Assertions.assertTrue(isEmployeesEquals(expectedList, resultList));
     }
